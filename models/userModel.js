@@ -5,12 +5,12 @@ const UserSchema=new mongoose.Schema({
   role:{
     type:String,
     required:[true, "role is required"],
-    email:['Admin','NGO','Orgnisation','user','hospital']
+    email:['Admin','NGO','Orgnisation','donar','hospital']
   },
   name:{
     type:String,
     required:function(){
-      if(this.role==='user'|| this.role==='admin')
+      if(this.role==='donar'|| this.role==='admin')
        { return true}
       return false
     }
