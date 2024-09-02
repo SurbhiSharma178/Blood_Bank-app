@@ -15,7 +15,7 @@ const inventorySchema= new mongoose.Schema({
     type:Number,
     required:[true,'blood quantity is required']
   },
-  Orgnisation:{
+  Organisation:{
     type:mongoose.Schema.Types.ObjectId,
     ref:'users',
     required:[true,'Orgnisation is required']

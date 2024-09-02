@@ -51,6 +51,13 @@ const loginController=async(req,res)=>{
       })
     }
 
+    // role
+    if(User.role !== req.body.role){
+      return res.status(500).send({
+        success:false,
+        message:"Role doesn't match"
+      })
+    }
     // compring password
     const comparePassword= await bcrypt.compare(req.body.password,User.password)
     if(!comparePassword){
@@ -83,7 +90,7 @@ const loginController=async(req,res)=>{
 
 const currentUserController=async(req,res)=>{
   try {
-    const currentUser= await userModel.findOne({_id:req.body.userID})
+    const currentUser= await userModel.findOne({_id:req.body.userId})
     return res.status(200).send({
       success:true,
       message:"User Fetched successfully",

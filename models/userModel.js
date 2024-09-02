@@ -5,7 +5,7 @@ const UserSchema=new mongoose.Schema({
   role:{
     type:String,
     required:[true, "role is required"],
-    email:['Admin','NGO','Orgnisation','donar','hospital']
+    email:['Admin','Organisation','donar','hospital']
   },
   name:{
     type:String,
@@ -15,10 +15,10 @@ const UserSchema=new mongoose.Schema({
       return false
     }
   },
-  OrgnisationName:{
+  OrganisationName:{
     type:String,
     required:function(){
-      if(this.role==='Orgnisation'){
+      if(this.role==='Organisation'){
         return true
       }
       return false
