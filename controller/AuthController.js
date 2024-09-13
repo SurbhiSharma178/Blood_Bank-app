@@ -11,7 +11,7 @@ try {
   if(existingUser){
     return res.status(200).send({
       success:false,
-      message:"USer already exist"
+      message:"User already exist"
     })
   }
   const salt=await bcrypt.genSalt(10) 
@@ -52,6 +52,9 @@ const loginController=async(req,res)=>{
     }
 
     // role
+    console.log(req.body.role);
+    console.log(User.role);
+    
     if(User.role !== req.body.role){
       return res.status(500).send({
         success:false,
@@ -70,7 +73,7 @@ const loginController=async(req,res)=>{
     const token = jwt.sign({userID:User._id},process.env.JWT_SECRET,{expiresIn:'1h'})
     return res.status(201).send({
       success:true,
-      message:"USer successfully login",
+      message:"User successfully login",
       token,
       User
     })
@@ -80,8 +83,7 @@ const loginController=async(req,res)=>{
       success:false,
       message:"Error in login API",
       error
-    })
-    
+    }) 
   }
 }
 
@@ -90,7 +92,8 @@ const loginController=async(req,res)=>{
 
 const currentUserController=async(req,res)=>{
   try {
-    const currentUser= await userModel.findOne({_id:req.body.userId})
+    const currentUser= await userModel.findOne({_id:req.body.userID})
+    // console.log(currentUser)
     return res.status(200).send({
       success:true,
       message:"User Fetched successfully",

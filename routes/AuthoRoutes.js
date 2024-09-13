@@ -10,7 +10,7 @@ router.post('/register',registerController)
 // Login || POST
 router.post('/login',loginController)
 
-// get Current User || GET\
+// get Current User || GET
 router.get('/current-user',authMiddleWare,currentUserController)
 
 

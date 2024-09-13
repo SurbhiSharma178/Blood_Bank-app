@@ -13,7 +13,8 @@ const InputType = ({lableFor,lableText,inputType,value,name,onchange}) => {
               //  id="exampleInputEmail1"
                name={name}
                value={value}
-               onChange={onchange}/>
+               onChange={onchange}
+               />
       </div>
     </>
   )

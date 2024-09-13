@@ -10,8 +10,9 @@ const UserSchema=new mongoose.Schema({
   name:{
     type:String,
     required:function(){
-      if(this.role==='donar'|| this.role==='admin')
-       { return true}
+      if((this.role==='donar')|| (this.role==='Admin')){
+       return true}
+       
       return false
     }
   },
