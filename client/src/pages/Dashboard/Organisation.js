@@ -13,16 +13,16 @@ const Organisation = () => {
     try {
       if(User?.role==='donar'){
         const { data } = await API.get('/inventory/get-organisation');
-        // console.log(data);
+        console.log(data);
         if (data?.success) {
-          setData(data?.organisation)
+          setData(data?.organisations)
         }
       }
       if(User?.role==='hospital'){
         const { data } = await API.get('/inventory/get-organisation-for-hospital');
         // console.log(data);
         if (data?.success) {
-          setData(data?.organisation)
+          setData(data?.organisations)
         }
       }
      
@@ -48,7 +48,7 @@ const Organisation = () => {
         <tbody>
           {data?.map((record) => (
             <tr key={record._id}>
-              <td>{record.name || record.OrganisationName + "(Org)"}</td>
+              <td>{record.name || record.OrganisationName +'ORG' }</td>
               <td>{record.email}</td>
               <td>{record.phone}</td>
               <td>{moment(record.createdAt).format('DD/MM/YYYY hh:mm A')}</td>

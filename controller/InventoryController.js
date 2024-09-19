@@ -139,6 +139,24 @@ const getInventoryHospitalController = async (req, res) => {
   }
 }
 
+// GET Blood Record Of 3
+const getRecentInventoryController=async(req,res)=>{
+  try {
+    const inventory=await InventoryModel.find({Organisation :req.body.userID}).limit(5).sort({createdAt:-1})
+    return res.status(200).send({
+      success:true,
+      message:"Recent Data Successfully get",
+      inventory
+    })
+  } catch (error) {
+    console.log(error.message);
+    return res.status(500).send({
+      success:false,
+      message:"Error in getting Recent Inventory API ",
+      error
+    })
+  }
+}
 
 // GET Donar Record
 const getDonarController = async (req, res) => {
@@ -192,20 +210,19 @@ const getHospitalController = async (req, res) => {
   }
 }
 
+// Get Organisation Blood Records
 const getOrganisationController = async (req, res) => {
   try {
     const Organisation = req.body.userID;
     // find orginastion
-    const OrganisationId = await InventoryModel.distinct('Organisation', { Organisation });
-    // console.log(Organisation);
+    const OrganisationId = await InventoryModel.distinct('Organisation', {Organisation });
 
-    const organisation = await userModel.find({ _id: { $in: OrganisationId } })
-    // console.log(organisation);
+    const organisations = await userModel.find({ _id:{ $in:OrganisationId } })
 
     res.status(200).send({
       success: true,
       message: "Organstion Records successfully fetched",
-      organisation
+      organisations
     })
   } catch (error) {
     console.log(error.message);
@@ -241,4 +258,4 @@ const getOrganisationForHospitalController = async (req, res) => {
     })
   }
 }
-module.exports = { createInventoryController, getInventoryController, getDonarController, getHospitalController, getOrganisationController,getOrganisationForHospitalController,getInventoryHospitalController }
+module.exports = { createInventoryController, getInventoryController, getDonarController, getHospitalController, getOrganisationController,getOrganisationForHospitalController,getInventoryHospitalController,getRecentInventoryController }

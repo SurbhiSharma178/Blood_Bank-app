@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 export const userLogin= createAsyncThunk(
   'auth/login',
   async({role,email,password},{rejectWithValue})=>{
-    console.log(role);
+    // console.log(role);
     
     try {
       const {data}=await API.post('/auth/login',{role,email,password})

@@ -6,10 +6,12 @@ import Layout from '../components/shared/layout/Layout';
 import Modal from '../components/shared/modal/Modal';
 import API from '../services/API';
 import moment from 'moment'
+import { useNavigate } from 'react-router-dom';
 
 const HomePage = () => {
-  const { loading, error } = useSelector((state) => state.auth);
+  const { loading, error ,User} = useSelector((state) => state.auth);
   const [data, setData] = useState([]);
+  const navigate=useNavigate()
 
   // get Blood Record Data
   const getBloodRecord = async () => {
@@ -36,6 +38,9 @@ const HomePage = () => {
   return (
     <>
       <Layout>
+        {
+          User?.role==='Admin' && navigate("/adminHome")
+        }
         {error && <span>{toast.error(error)}</span>}
         {loading ? (
           <Spinner />

@@ -35,13 +35,33 @@ const Sidebar = () => {
               </>
             )}
 
+{
+            User?.role === 'Admin' && (
+              <>
+                <div className={`menu-item ${location.pathname === '/donar-list' && "active"}`}>
+                  <i className='fa-solid fa-warehouse'></i>
+                  <Link to='/donar-list'>Donar Record</Link>
+                </div>
+
+                <div className={`menu-item ${location.pathname === '/hospital-list' && "active"}`}>
+                  <i className='fa-solid fa-hand-holding-medical'></i>
+                  <Link to='/hospital-list'>Hospital Record</Link>
+                </div>
+
+                <div className={`menu-item ${location.pathname === '/org-list' && "active"}`}>
+                  <i className='fa-regular fa-hospital'></i>
+                  <Link to='/org-list'>Organisation Record</Link>
+                </div>
+              </>
+            )}
+
 
           {
             (User?.role === 'donar' || User?.role === 'hospital') && (
               <>
-                <div className={`menu-item ${location.pathname === '/Orginastion' && "active"}`}>
+                <div className={`menu-item ${location.pathname === '/organisation' && "active"}`}>
                   <i className='fa-regular fa-building'></i>
-                  <Link to='/orginastion'>Organisation</Link>
+                  <Link to='/organisation'>Organisation</Link>
                 </div>
               </>
             )

@@ -26,6 +26,8 @@ app.use(morgan('dev'))
 app.use('/api/v1/test',require('./routes/testRoutes'));
 app.use('/api/v1/auth',require('./routes/AuthoRoutes'));
 app.use('/api/v1/inventory',require('./routes/InventoryRoutes'))
+app.use('/api/v1/analytics',require('./routes/AnalyticsRoutes'))
+app.use('/api/v1/admin',require('./routes/AdminRoutes'))
 
 // port 
 const PORT= process.env.PORT || 8080

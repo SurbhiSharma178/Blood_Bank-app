@@ -12,7 +12,6 @@ const UserSchema=new mongoose.Schema({
     required:function(){
       if((this.role==='donar')|| (this.role==='Admin')){
        return true}
-       
       return false
     }
   },

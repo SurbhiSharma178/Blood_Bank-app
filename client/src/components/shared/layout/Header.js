@@ -8,7 +8,7 @@ import { toast } from 'react-toastify';
 const Header = () => {
 
   const {User}= useSelector((state)=>state.auth)
-  // console.log(User);
+  // console.log(User?.OrganisationName);
   
   const navigate=useNavigate();
   const location= useLocation();
@@ -29,12 +29,12 @@ const Header = () => {
           </div>
           <ul className="navbar-nav flex-row">
           <li className="nav-item ">
-              <p className="nav-link"><FaRegUserCircle/> Welcome {User?.name || User?.hospitalName || User?.OrginastionName}{" "} 
+              <p className="nav-link"><FaRegUserCircle/> Welcome {User?.name || User?.hospitalName || User?.OrganisationName}{" "} 
               &nbsp;
               <span className="badge text-bg-secondary">{User?.role}</span> </p>
             </li>
             {
-              location.pathname==='/'? (
+              (location.pathname==='/'|| location.pathname==="/donar" || location.pathname==="/hospital")? (
                 <li className="nav-item mx-3">
               <Link to='/analytics' className="nav-link">
                AnaLytics
@@ -44,7 +44,7 @@ const Header = () => {
                
                   <li className="nav-item mx-3">
                 <Link to='/' className="nav-link">
-                 AnaLytics
+                 Home
                 </Link>
               </li>
               )
