@@ -6,8 +6,8 @@ A web-based project developed using the MERN stack (MongoDB, Express.js, React.j
   <li>User Authentication</li>
   <li>Logout from your account</li>
   <li>Create And Delete Inventory</li>
-  <li>Availability of blood</li>
-  <li>Total In And Total Out Blood</li>
+  <li>Check Availability of blood</li>
+  <li>Check Total In And Total Out Blood</li>
 
 </ul>
 
