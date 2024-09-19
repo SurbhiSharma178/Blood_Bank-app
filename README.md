@@ -12,11 +12,11 @@ A web-based project developed using the MERN stack (MongoDB, Express.js, React.j
 </ul>
 
 ## Tech Stack 💻
-<li><<strong>IDE:</strong> Visual Studio Code</li>
-<li><<strong>Frontend:</strong>React.js, Redux Toolkit for state management,bootstrap for styling</li>
-<li><<strong>Backend:</strong>Node.js, Express.js, Mongoose for MongoDB integration</li>
-<li><<strong>Database:</strong>MongoDB, using aggregation queries for users and inventory management</li>
-<li><<strong>Authentication:</strong>JWT (JSON Web Token) for secure authentication</li>
+<li><strong>IDE:</strong> Visual Studio Code</li>
+<li><strong>Frontend:</strong>React.js, Redux Toolkit for state management,bootstrap for styling</li>
+<li><strong>Backend:</strong>Node.js, Express.js, Mongoose for MongoDB integration</li>
+<li><strong>Database:</strong>MongoDB, using aggregation queries for users and inventory management</li>
+<li><strong>Authentication:</strong>JWT (JSON Web Token) for secure authentication</li>
 
 
 ## Download Files 👇
@@ -25,17 +25,17 @@ A web-based project developed using the MERN stack (MongoDB, Express.js, React.j
 * Then open the folder in your IDE
 
 ## To start the server 👨‍💻
-* shell
-* npm install
-* npm run dev
+ shell
+ npm install
+npm run dev
 
 The server is now running at http://localhost:8080/
 
 ## To start the client 👩‍💻
- * shell
-* cd client
-* npm install
-* npm start
+  shell
+ cd client
+ npm install
+ npm start
 
 The client is now running at http://localhost:3000/
 
